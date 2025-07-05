@@ -1,17 +1,13 @@
 #include <iostream>
 #include <vector>
-#include <algorithm> // Para std::max_element
+#include <algorithm>
 
-// Função para imprimir um vetor
 void printArray(const std::vector<int>& arr) {
     for (int num : arr)
         std::cout << num << " ";
     std::cout << std::endl;
 }
 
-// --------------------------
-// Counting Sort
-// --------------------------
 void countingSort(std::vector<int>& arr) {
     if (arr.empty()) return;
 
@@ -31,16 +27,12 @@ void countingSort(std::vector<int>& arr) {
     }
 }
 
-// --------------------------
-// Insertion Sort
-// --------------------------
 void insertionSort(std::vector<int>& arr) {
     int n = arr.size();
     for (int i = 1; i < n; ++i) {
         int key = arr[i];
         int j = i - 1;
 
-        // Move os elementos maiores que key uma posição à frente
         while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
             j--;
@@ -49,13 +41,9 @@ void insertionSort(std::vector<int>& arr) {
     }
 }
 
-// --------------------------
-// Função Principal
-// --------------------------
 int main() {
     std::vector<int> original = {5, 1, 4, 2, 8};
 
-    // Counting Sort
     std::vector<int> arr1 = original;
     std::cout << "Original: ";
     printArray(arr1);
@@ -64,7 +52,6 @@ int main() {
     std::cout << "Counting Sort: ";
     printArray(arr1);
 
-    // Insertion Sort
     std::vector<int> arr2 = original;
     insertionSort(arr2);
     std::cout << "Insertion Sort: ";
